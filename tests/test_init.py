@@ -15,4 +15,4 @@ def test_can_call_init_with_good_path():
 
 def test_cannot_call_init_with_bad_path():
     with pytest.raises(Exception):
-        fj.global_init(folder + "missing", cache_init=False)
+        fj.global_init(f"{folder}missing", cache_init=False)

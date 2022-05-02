@@ -21,7 +21,7 @@ def global_init(template_folder: str, auto_reload: bool = False, cache_init: boo
         return
 
     if not template_folder:
-        msg = f"The template_folder must be specified."
+        msg = "The template_folder must be specified."
         raise FastAPIJinjaException(msg)
 
     if not os.path.isdir(template_folder):
@@ -43,8 +43,7 @@ def render(template_file: str, **template_data):
     if not __templates:
         raise Exception("You must call global_init() before rendering templates.")
 
-    rendered_page = __templates.TemplateResponse(template_file, template_data)
-    return rendered_page
+    return __templates.TemplateResponse(template_file, template_data)
 
 
 def response(template_file: str, mimetype: str = "text/html", status_code: int = 200, **template_data):
@@ -93,8 +92,7 @@ def __get_request(*args, **kwargs):
     for arg in args:
         if isinstance(arg, Request):
             return arg
-    else:
-        return kwargs.get('request', None)
+    return kwargs.get('request', None)
 
 
 def __render_response(template_file: str, response_val: dict, request: Request, mimetype: str):
