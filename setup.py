@@ -22,7 +22,7 @@ with open(requirements_txt, "r", encoding="utf-8") as fin:
     ]
 
 setup(
-    name="fastapi_jinja",
+    name="fastapi-jinja",
     version="0.1.0",
     url="https://github.com/ageekinside/fastapi-jinja",
     license="MIT",
