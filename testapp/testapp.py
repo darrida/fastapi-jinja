@@ -21,14 +21,9 @@ fastapi_jinja.global_init(template_folder)
 @app.get("/")
 @fastapi_jinja.template("test.html")
 async def root(request: Request):
-  render_dict = {
-    "title": "Test Title",
-  }
-
-  user_ids = ["user-"+str(i) for i in range(10)]
+  user_ids = [f"user-{str(i)}" for i in range(10)]
 
   users = [{"url": f"http://site/{user}", "username": user} for user in user_ids]
 
-  render_dict["users"] = users  
-
+  render_dict = {"title": "Test Title", "users": users}
   return render_dict, request
